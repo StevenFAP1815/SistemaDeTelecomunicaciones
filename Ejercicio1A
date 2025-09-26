@@ -1,0 +1,57 @@
+
+#include <iostream>
+#include <string>
+#include <chrono>
+using namespace std;
+string nombres[200] = {"Adrián",	"Alejandro",	"Amalia",	"Ana",	"Arturo",	"Aurora",	"Beatriz",	"Bernardo",	"Berta",	"Blanca",	"Boris",	"Braulio",	"Camila",	"Carlos",	"Carmen",	"Carolina",	"Cayetano",	"César",	"Claudia",	"Cristian",	"Damian",	"Dana",	"Daniel ",	"Daniela ",	"Darla",	"David ",	"Denis ",	"Diego ",	"Dora ",	"Duvan",	"Dylan ",	"Eduardo ",	"Elvio",	"Elvira ",	"Emanuel",	"Emilia",	"Emilio ",	"Enrique ",	"Enriqueta",	"Erlan",	"Esmeralda",	"Esperanza",	"Estefania",	"Estela",	"Gabriel",	"Jacinta",	"Jairo",	"Javier",	"Jimena",	"Joaquín",	"Jordana",	"José",	"Juan",	"Julián",	"Julieta",	"Karen",	"Katerina",	"Kevin",	"Kiara",	"Kimberly",	"Konstantin",	"Laura",	"Leandro",	"Leonardo",	"Lucía",	"Luis",	"Luna",	"Magdalena",	"Manuel",	"Manuela",	"Marcela",	"Marcelo",	"Marcos",	"María",	"Marina",	"Mario",	"Marta",	"Martín",	"Mateo",	"Matías",	"Mauricio",	"Maximiliano",	"Melisa",	"Mercedes",	"Miguel",	"Moisés",	"Montserrat",	"Nadia",	"Nahuel",	"Nala",	"Nancy",	"Naomi",	"Napoleón",	"Natalia",	"Nayeli",	"Nelson",	"Nerea",	"Néstor",	"Nicanor",	"Nicolás",	"Nieves",	"Ninfa",	"Noah",	"Noel",	"Noemí",	"Nora",	"Nuria",	"Octavia",	"Octavio",	"Odalys",	"Odette",	"Ofelia",	"Olga",	"Olimpia",	"Olivia",	"Omar",	"Omero",	"Ona",	"Opal",	"Oprah",	"Orestes",	"Oriana",	"Oriel",	"Orlando",	"Oscar",	"Osvaldo",	"Otto",	"Pablo",	"Paola",	"Patricia",	"Paula",	"Paulina",	"Pedro",	"Pilar",	"Quentin",	"Querubín",	"Quetzalí",	"Quico",	"Quim",	"Quintín",	"Quirino",	"Ramírez",	"Ramón",	"Ramos",	"Raquel",	"Raúl",	"Rebeca",	"Reyes",	"Ricardo",	"Ríos",	"Rivera",	"Roberta",	"Roberto",	"Rocío",	"Rodríguez",	"Rojas",	"Rosa",	"Rubén",	"Ruiz",	"Salazar",	"Salinas",	"Salvador",	"Sánchez",	"Santana",	"Santiago",	"Santos",	"Sara",	"Sebastián",	"Sergio",	"Serrano",	"Sofía",	"Sonia",	"Soto",	"Suárez",	"Susana",	"Tadeo",	"Tania",	"Teodoro",	"Teresa",	"Timoteo",	"Tina",	"Tita",	"Tomás",	"Ulises",	"Unai",	"Uriel",	"Valentina",	"Valeria",	"Vicente",	"Victor",	"Viviana",	"Walter",	"Wilfredo",	"William",	"Xavier",	"Ximena",	"Xiomara",	"Yuri",	"Zenon",	"Zuleyka"};
+
+string apellidos[203]={"Abad",	"Aguilar",	"Alonso",	"Álvarez",	"Andrade",	"Arce",	"Balderas",	"Barrera",	"Bautista",	"Becerra",	"Bernal",	"Blázquez",	"Bravo",	"Cáceres",	"Calderón",	"Campos",	"Carrillo",	"Castillo",	"Castro",	"Cordero",	"Cruz",	"Dalot",	"Damasco",	"Dan",	"Davila",	"Diaz",	"Dibello",	"Dona",	"Duncan",	"Dunn",	"Duran",	"Echeverria",	"Echeverry",	"Eguez",	"Elorza",	"Equiz",	"Erviti",	"Escudero",	"Espina",	"Espinoza",	"Esteva",	"Fausto",	"Federer",	"Feixas",	"Fernandez",	"Ferrer",	"Figo",	"Figueroa",	"Foca",	"Freitas",	"Frinpong",	"Galindo",	"Gallardo",	"Gallego",	"García",	"Giménez",	"Godoy",	"Gómez",	"González",	"Guerrero",	"Gutiérrez",	"Harb",	"Henríquez",	"Hernández",	"Herrera",	"Hidalgo",	"Hinojosa",	"Holguín",	"Hoyos",	"Huerta",	"Hurtado",	"Ibáñez",	"Ibarra",	"Iglesias",	"Illescas",	"Infante",	"Iriarte",	"Isidro",	"Iturralde",	"Izquierdo",	"Jara",	"Jaramillo",	"Jáuregui",	"Jerez",	"Jiménez",	"Jordán",	"Juárez",	"Justo",	"Karam",	"Khan",	"Kim",	"Klein",	"Kovács",	"Krüger",	"Ledesma",	"López",	"Lozano",	"Luna",	"Macías",	"Maldonado",	"Manzano",	"Marín",	"Márquez",	"Martínez",	"Medina",	"Mena",	"Méndez",	"Mendoza",	"Mesa",	"Messi",	"Miranda",	"Montero",	"Montes",	"Montoya",	"Morales",	"Moreno",	"Muñoz",	"Nadal",	"Nájera",	"Naranjo",	"Narváez",	"Nava",	"Navarrete",	"Navarro",	"Navas",	"Nazario",	"Negrete",	"Negrón",	"Nicolás",	"Nieto",	"Noguera",	"Nolasco",	"Noriega",	"Novoa",	"Noya",	"Núñez",	"Ocampo",	"Ocaña",	"Oceguera",	"Ochoa",	"Ojeda",	"Oliva",	"Olivares",	"Olivera",	"Olmos",	"Olvera",	"Ontiveros",	"Ordóñez",	"Orellana",	"Oropeza",	"Orozco",	"Ortega",	"Ortiz",	"Osorio",	"Otero",	"Oviedo",	"Páez",	"Palacios",	"Pardo",	"Paredes",	"Parra",	"Peña",	"Pérez",	"Ponce",	"Quesada",	"Quevedo",	"Quezada",	"Quijano",	"Quintana",	"Quintero",	"Quiroga",	"Quiroz",	"Ramírez",	"Ramos",	"Ríos",	"Rivera",	"Rodríguez",	"Rojas",	"Romero",	"Ruiz",	"Talavera",	"Tapia",	"Tejada",	"Tirado",	"Toledo",	"Torres",	"Tovar",	"Trevino",	"Ugarte",	"Ulloa",	"Underhill",	"Uslar",	"Vargas",	"Vasquez",	"Vega",	"Wendroth",	"Wolf",	"Xu",	"Zambrana",	"Zamora",	"Zapata",	"Zavala",	"Zhang"};
+
+string NombreCliente[10000];
+
+void rellenar_NombreCliente(){
+    int k=0;
+    for (int i=0;i<100;i++){
+        for (int j=0;j<100;j++){
+            NombreCliente[k] = nombres[i] + " " +
+                apellidos[j];
+            k++;
+        }
+    }
+}
+
+void imprimir_NombreCliente(){
+    for (int k=0;k<10000;k++){
+        cout << NombreCliente[k] << endl;
+    }
+}
+
+int main() {
+    auto inicio = std::chrono::high_resolution_clock::now();
+    rellenar_NombreCliente();
+    auto medio = 
+        std::chrono::high_resolution_clock::now();
+    imprimir_NombreCliente();
+    auto fin = 
+        std::chrono::high_resolution_clock::now();
+
+    auto duracion1 = 
+        std::chrono::duration_cast<std::chrono::microseconds>
+        (medio - inicio);
+
+    auto duracion2 = 
+        std::chrono::duration_cast<std::chrono::microseconds>
+        (fin - medio);
+
+    std::cout 
+        << "Tiempo de Generacion de Nombres " 
+        << duracion1.count() << " microsegundos" 
+        << std::endl;
+    
+    std::cout 
+        << "Tiempo de Impresion de Nombres " 
+        << duracion2.count() << " microsegundos" 
+        << std::endl;
+
+    return 0;
+}
